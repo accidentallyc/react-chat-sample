@@ -1,0 +1,26 @@
+{
+  "name": "react-chat",
+  "version": "0.0.1",
+  "private": "true",
+  "description": "Chat system using react and firebase",
+  "scripts": {
+    "test": "test",
+    "watch": "webpack --watch",
+    "build": "webpack "
+  },
+  "author": "Al Cassey Chavez",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^2.0.1",
+    "lodash": "^4.17.11",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
