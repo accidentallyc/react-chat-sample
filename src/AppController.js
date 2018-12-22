@@ -20,18 +20,21 @@ firestore
 	.collection("message")
 	.orderBy('time')
   .onSnapshot((querySnapshot) => {
-  	
-    store.dispatch({ type:'RESET' });
+    const messages = store.getState().messages;
+  	const lastInserted = _.last(messages);
+    const lastInsertedId = _.get(lastInserted,'id');
+    const lastInsertFound = false;
 
-    querySnapshot.forEach((doc) => {
-      store.dispatch({
-        type:'APPEND',
-        message: {
-          ...doc.data(),
-          id: doc.id
-        }
-      })
-    })
+    for (let change of querySnapshot.docChanges()) {
+      const { doc } = change;
+      const message = {
+        id: doc.id,
+        ...doc.data(),
+      }
+
+      store.dispatch({ type:'APPEND', message });
+    }
+
   });
 
 

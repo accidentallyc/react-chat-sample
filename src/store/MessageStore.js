@@ -2,10 +2,11 @@ import { createStore } from 'redux';
 import _ from 'lodash';
 import { firestore } from "../service/Firebase";
 
-function counter(state = {messages:[],ids:{}}, action) {
+
+function counter(state = { messages:[], ids:{} }, action) {
   switch (action.type) {
     case 'RESET':
-      return {messages:[],ids:{}};
+      return { messages:[],ids:{} };
     case 'APPEND':
       return {
       	messages: _.concat(state.messages, action.message),
