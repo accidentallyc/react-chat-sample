@@ -2,7 +2,9 @@ import _ from 'lodash';
 
 
 import React, { Component } from "react";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
+import './MessageList.scss';
 
 class MessageList extends Component {
 
@@ -21,7 +23,7 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div>
+      <div id="message-list">
         { this.renderMessages() }
       </div>
     );

@@ -1,0 +1,62 @@
+body {
+	background: #EEE;
+	font-size: 24px;
+	font-family: Arial;
+	margin: 0;
+	padding: 0;
+}
+
+* { 
+	box-sizing: border-box;
+}
+
+p, form {
+	margin: 0;
+}
+
+.flex { display: flex; }
+.flex-v {
+	display: flex;
+	flex-direction: column;
+}
+
+.col-1 { flex-grow: 1; }
+.col-2 { flex-grow: 2; }
+.col-3 { flex-grow: 3; }
+.col-4 { flex-grow: 4; }
+.col-5 { flex-grow: 5; }
+.col-4 { flex-grow: 4; }
+.col-6 { flex-grow: 6; }
+.col-7 { flex-grow: 7; }
+.col-8 { flex-grow: 8; }
+
+.container-left {
+	flex-basis: 240px;
+	flex-grow: 0;
+	flex-shrink:1;
+}
+.container-right {
+	width: 100%;
+	flex-shrink:2;
+}
+
+#app-container {
+	width: 100%;
+	height: 100%;
+}
+
+#message-list {
+	border: thin solid green;
+	height: 150px;
+	width: 100%;
+	flex-grow: 4;
+}
+
+#input-panel {
+	border: thin solid red;
+}
+
+#users-panel {
+	border: thin solid blue;
+	flex-grow: 1;
+}

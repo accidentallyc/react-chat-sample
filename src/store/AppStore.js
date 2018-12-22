@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { firestore } from "../service/Firebase";
 
 
-function counter(state = { messages:[], ids:{} }, action) {
+function reducerCallback(state = { messages:[], ids:{} }, action) {
   switch (action.type) {
     case 'RESET':
       return { messages:[],ids:{} };
@@ -12,7 +12,7 @@ function counter(state = { messages:[], ids:{} }, action) {
       	messages: _.concat(state.messages, action.message),
       	ids: {}
       }
-    case 'ADD':
+    case 'NEW':
       firestore.collection("message").add({
           time: new Date,
           value: action.message.value
@@ -30,4 +30,4 @@ function counter(state = { messages:[], ids:{} }, action) {
   return state
 }
 
-export default createStore(counter);
+export default createStore(reducerCallback);
