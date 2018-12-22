@@ -12,7 +12,6 @@ function counter(state = {messages:[],ids:{}}, action) {
       	ids: {}
       }
     case 'ADD':
-
       firestore.collection("message").add({
           time: new Date,
           value: action.message.value

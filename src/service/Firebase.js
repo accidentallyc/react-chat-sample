@@ -1,3 +1,6 @@
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
 firebase.initializeApp({
   apiKey: 'AIzaSyC6yOu9qcYTsGaLdu5epPDKSfuiC0lK1QQ',
   authDomain: 'react-chat-7f952.firebaseapp.com',

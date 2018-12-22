@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from "react";
 import ReactDOM from "react-dom";
+import moment from "moment";
 
 // Services
 import { Provider } from "react-redux";
@@ -17,7 +18,9 @@ import { firestore } from "./service/Firebase";
 
 firestore
 	.collection("message")
+	.orderBy('time')
   .onSnapshot((querySnapshot) => {
+  	
     store.dispatch({ type:'RESET' });
 
     querySnapshot.forEach((doc) => {
