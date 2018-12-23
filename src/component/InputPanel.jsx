@@ -45,7 +45,7 @@ class InputPanel extends Component {
       event.stopPropagation();
 
       store.dispatch({
-        type:'NEW',
+        type:'CREATE_MESSAGE',
         message: {
           value: this.state.value.trim()
         }

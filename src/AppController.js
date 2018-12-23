@@ -6,7 +6,6 @@ import store from "./store/AppStore";
 
 // Setup Firebase
 import { firestore } from "./service/Firebase";
-
 firestore
 	.collection("message")
 	.orderBy('time')
@@ -23,9 +22,13 @@ firestore
         ...doc.data(),
       }
 
-      store.dispatch({ type:'APPEND', message });
+      store.dispatch({ type:'APPEND_MESSAGE', message });
     }
-
   });
 
 
+//Set up session
+import jsCookie from 'js-cookie';
+
+
+jsCookie.get('user')
