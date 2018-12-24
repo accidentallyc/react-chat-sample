@@ -11,12 +11,8 @@ firestore
 	.orderBy('time')
   .onSnapshot((querySnapshot) => {
     const messages = store.getState().messages;
-  	const lastInserted = _.last(messages);
-    const lastInsertedId = _.get(lastInserted,'id');
-    const lastInsertFound = false;
 
-    for (let change of querySnapshot.docChanges()) {
-      const { doc } = change;
+    for (let {doc} of querySnapshot.docChanges()) {
       const message = {
         id: doc.id,
         ...doc.data(),
@@ -26,9 +22,41 @@ firestore
     }
   });
 
+firestore
+  .collection("user")
+  .onSnapshot((querySnapshot) => {
+    const messages = store.getState().messages;
+    
+    for (let change of querySnapshot.docChanges()) {
+      const { doc } = change;
+      const user = {
+        id: doc.id,
+        ...doc.data(),
+      }
+
+      store.dispatch({ type:'APPEND_USER', user });
+    }
+  });
+
 
 //Set up session
 import jsCookie from 'js-cookie';
 
+const currentUserId = jsCookie.get('user');
+if( currentUserId ) {
+  firestore
+    .collection("user")
+    .doc(currentUserId)
+    .get()
+    .then((docRef) => {
+      
+      store.dispatch({
+        type:'INIT_USER',
+        user: docRef
+      })
+    })
+    .catch(console.log)
+}
 
-jsCookie.get('user')
+
+window.cookie = jsCookie;

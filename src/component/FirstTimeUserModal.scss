@@ -1,0 +1,32 @@
+#first-time-user-modal {
+	position: fixed;
+	background: rgba(244,244,244,0.8);
+	width: 100%;
+	height: 100%;
+  justify-content: center;
+  align-items: center;
+
+	.modal-container {
+		background: #FFF;
+		padding: 1em;
+		border-radius: 3px;
+		font-size: 16px;
+		width: 380px;
+
+		& > * {
+			flex-grow:1;
+  		align-items: center;
+		}
+	}
+
+	button {
+		background: rgb(42, 178, 123);
+		outline: none;
+		font-weight: bold;
+		color: #FFF;
+		padding: 0.5em 1em;
+		border: rgb(42, 178, 123);
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+}

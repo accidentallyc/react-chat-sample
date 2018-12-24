@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 import './MessageList.scss';
+import MessageListItem from './MessageListItem.jsx';
 
 class MessageList extends Component {
 
@@ -12,13 +13,16 @@ class MessageList extends Component {
     super();
   }
 
-  renderMessage({ value,id }) {
-    return <p key={id}> {value} </p>
-  }
-
   renderMessages() {
     const messages = this.props.messages;
-    return messages.map(this.renderMessage);
+    return messages.map(({ value,id, sender:ref }) => {
+      const sender = this.props.user[ref.id];
+      return <MessageListItem
+        key={id}
+        value={value} 
+        sender={sender} 
+        />
+    });
   }
 
   render() {
@@ -34,7 +38,8 @@ class MessageList extends Component {
 
 export function mapState(state) {
   return {
-    messages : state.messages
+    messages : state.messages,
+    user: state.user
   };
 };
 export default connect(mapState)(MessageList)

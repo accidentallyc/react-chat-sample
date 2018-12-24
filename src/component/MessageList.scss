@@ -1,3 +1,51 @@
 #message-list {
-	
+	padding: 1em;
+
+	.message-list-item {
+		margin: 1.2em 0;
+		
+		.name {
+			margin-right:1em;
+			font-weight: bold;
+		}
+
+		
+		&.current-user {
+			.content {
+				background: #3578e5;
+				color: #FFF;
+
+				&:after {
+					border-right-color: #3578e5;
+				}
+			}
+		}
+
+		.content {
+			color: black;
+			padding: 0.5em 0.7em 0.5em 0.7em;
+			border-radius: 0.4em;
+			position: relative;
+			background: #CCC;
+
+			&:after {
+				content:'';
+			  width: 0; 
+			  height: 0; 
+			  border-top: 10px solid transparent;
+			  border-right:10px solid #CCC; 
+			  border-bottom: 10px solid transparent; 
+			  border-left: 10px solid transparent; 
+			  display: block;
+			  position: absolute;
+			  left: -17px;
+			  top: 8px;
+			}
+		}
+
+		small {
+			font-size:0.8em;
+			color: gray;
+		}
+	}	
 }

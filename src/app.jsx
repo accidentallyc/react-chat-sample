@@ -6,6 +6,7 @@ import './app.scss';
 import store from "./store/AppStore";
 import MessageList from "./component/MessageList.jsx";
 import InputPanel from "./component/InputPanel.jsx";
+import FirstTimeUserModal from "./component/FirstTimeUserModal.jsx";
 
 
 const root = document.getElementById("app-container");
@@ -17,7 +18,8 @@ ReactDOM.render(
   	<div className="flex-v container-right"> 
     	<MessageList />
     	<InputPanel />
-  	</div> 
+  	</div>
+    <FirstTimeUserModal/>  
   </Provider>, 
   root
 );
