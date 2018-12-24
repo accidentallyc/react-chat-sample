@@ -1,17 +1,11 @@
-# Webpack - React Boilerplate
+# React - Chat
 
-This boilerplate contains a working react-webpack setup. The src/index.js is the entry point and dist/bundle.js is the output file.
+To see this in action go to https://accidentallyc.github.io/react-chat-sample/.
 
-## Installation
-```
-git clone git@github.com:accidentallyc/webpack-react-boilerplate.git myproject
-cd myproject
-npm install
+This is just a sample/test project just that makes use of the following technologies
 
-# pick one 
-npm run watch # watch for changes
-npm run build  # bundle up the scripts
-```
+* React and Redux
+* Webpack
+* Firestore
 
-### Requests and PRs
-Feel free to request an addition to the boilerplate, or send a pr.
+Feel free to take the project and play around with it. But use your own firestore keys.
