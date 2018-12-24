@@ -71,7 +71,8 @@ reducerFunctions.CREATE_USER = (state, action) => {
         type:'INIT_USER',
         user : {
           nickname: action.nickname,
-          ref: docRef
+          ref: docRef,
+          id: docRef.id,
         }
       });
 
