@@ -6,11 +6,20 @@ import { connect } from 'react-redux';
 
 import './MessageList.scss';
 import MessageListItem from './MessageListItem.jsx';
+import ReactDOM from 'react-dom';
 
 class MessageList extends Component {
 
   constructor() {
     super();
+  }
+
+  componentDidUpdate() {
+    const dom = ReactDOM.findDOMNode(this);
+    const height = dom.clientHeight;
+    if( dom.scrollTop > height) {
+      dom.scrollTop = height + 999;
+    }
   }
 
   renderMessages() {

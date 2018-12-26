@@ -24,6 +24,7 @@ firestore
 
 firestore
   .collection("user")
+  .orderBy('lastLogin')
   .onSnapshot((querySnapshot) => {
     const messages = store.getState().messages;
     
@@ -49,6 +50,7 @@ if( currentUserId ) {
     .doc(currentUserId)
     .get()
     .then((docRef) => {
+      docRef.ref.update({ lastLogin: new Date })
       
       store.dispatch({
         type:'INIT_USER',

@@ -7,13 +7,14 @@ import store from "./store/AppStore";
 import MessageList from "./component/MessageList.jsx";
 import InputPanel from "./component/InputPanel.jsx";
 import FirstTimeUserModal from "./component/FirstTimeUserModal.jsx";
+import ThreadList from "./component/ThreadList.jsx";
 
 
 const root = document.getElementById("app-container");
 ReactDOM.render(
   <Provider store={store}>
   	<div className="flex container-left"> 
-    	<div id="users-panel"></div>
+    	<ThreadList />
   	</div> 
   	<div className="flex-v container-right"> 
     	<MessageList />
